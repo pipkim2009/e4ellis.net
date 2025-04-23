@@ -38,7 +38,7 @@ function hit(user) {
     card = `${value}${suit}.png`
     
     if (usedCards.includes(card)) {
-        return(hit())
+        return(hit(user))
     } else {
         usedCards.push(card)
     }
@@ -118,7 +118,7 @@ function winCheck(stand) {
 
 function render(stand) {
     playerCards.innerHTML = ''
-    playerScore.textContent = `player: ${player.score}`
+    playerScore.textContent = `You: ${player.score}`
     player.stackRotate = 0
     for (let i = 0; i < player.cards.length; i++) {
         playerCards.innerHTML += `<img src='./assets/images/cards/${player.cards[i]}' class='w-25' style='transform: rotate(${player.stackRotate}deg); position: absolute;'/>`
@@ -128,12 +128,12 @@ function render(stand) {
     systemCards.innerHTML = ''
     system.stackRotate = 0
     if (stand === false) {
-        systemScore.textContent = `system: ${system.score - system.hiddenPoints}`
+        systemScore.textContent = `System: ${system.score - system.hiddenPoints}`
         systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[0]}' class='w-25' style='position: absolute;'/>`
         systemCards.innerHTML += `<img src='./assets/images/cards/hidden-card.png' class='w-25' style='transform: rotate(15deg); position: absolute;'/>`
     } else {
         for (let i = 0; i < system.cards.length; i++) {
-            systemScore.textContent = `system: ${system.score}`
+            systemScore.textContent = `System: ${system.score}`
             systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[i]}' class='w-25' style='transform: rotate(${system.stackRotate}deg); position: absolute;'/>`
             system.stackRotate += 15
         }
