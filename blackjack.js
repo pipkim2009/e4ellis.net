@@ -1,14 +1,14 @@
-const playerScore = document.getElementById("player-score")
-const systemScore = document.getElementById("system-score")
-const hitButton = document.getElementById("hit-button")
-const restartButton = document.getElementById("restart-button")
-const standButton = document.getElementById("stand-button")
-const playerCards = document.getElementById("player-cards")
-const systemCards = document.getElementById("system-cards")
-const alertContainer = document.getElementById("alert-container")
-const playButton = document.getElementById("play-button")
-const playDisplay = document.getElementById("play-display")
-const gameDisplay = document.getElementById("game-display")
+const playerScore = document.getElementById("bj-player-score")
+const systemScore = document.getElementById("bj-system-score")
+const hitButton = document.getElementById("bj-hit-button")
+const restartButton = document.getElementById("bj-restart-button")
+const standButton = document.getElementById("bj-stand-button")
+const playerCards = document.getElementById("bj-player-cards")
+const systemCards = document.getElementById("bj-system-cards")
+const alertContainer = document.getElementById("bj-alert-container")
+const playButton = document.getElementById("bj-play-button")
+const playDisplay = document.getElementById("bj-menu-section")
+const gameDisplay = document.getElementById("bj-game-section")
 
 const values = ["a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"]
 const suits = ["c", "d", "h", "s"]
@@ -88,11 +88,11 @@ function winCheck(stand) {
     // not stand
     if (stand === false) {
         if (player.score === 21) {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: true, message: "You win, you got blackjack"})
         }
         if (player.score > 21) {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: false, message: "You lose, you've gone bust!"})
         }
     }
@@ -100,16 +100,16 @@ function winCheck(stand) {
     // stand
     if (stand === true) {
         if (system.score > 21) {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: true, message: "You win, system has gone bust!"})
         } else if (player.score > system.score) {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: true, message: "You win, you beat the system!"})
         } else if (player.score === system.score) {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: false, message: "You draw, it's a push!"})
         } else {
-            restartButton.classList.remove("d-none")
+            restartButton.style.display = "block"
             return({result: true, win: false, message: "You lose, the system beat you!"})
         }
     }
@@ -121,7 +121,7 @@ function render(stand) {
     playerScore.textContent = `You: ${player.score}`
     player.stackRotate = 0
     for (let i = 0; i < player.cards.length; i++) {
-        playerCards.innerHTML += `<img src='./assets/images/cards/${player.cards[i]}' class='w-25' style='transform: rotate(${player.stackRotate}deg); position: absolute;'/>`
+        playerCards.innerHTML += `<img src='./assets/images/cards/${player.cards[i]}' style='transform: rotate(${player.stackRotate}deg); position: absolute;'/>`
         player.stackRotate += 15
     }
 
@@ -129,12 +129,12 @@ function render(stand) {
     system.stackRotate = 0
     if (stand === false) {
         systemScore.textContent = `System: ${system.score - system.hiddenPoints}`
-        systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[0]}' class='w-25' style='position: absolute;'/>`
-        systemCards.innerHTML += `<img src='./assets/images/cards/hidden-card.png' class='w-25' style='transform: rotate(15deg); position: absolute;'/>`
+        systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[0]}' style='position: absolute;'/>`
+        systemCards.innerHTML += `<img src='./assets/images/cards/hidden-card.png' style='transform: rotate(15deg); position: absolute;'/>`
     } else {
         for (let i = 0; i < system.cards.length; i++) {
             systemScore.textContent = `System: ${system.score}`
-            systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[i]}' class='w-25' style='transform: rotate(${system.stackRotate}deg); position: absolute;'/>`
+            systemCards.innerHTML += `<img src='./assets/images/cards/${system.cards[i]}' style='transform: rotate(${system.stackRotate}deg); position: absolute;'/>`
             system.stackRotate += 15
         }
     }
@@ -142,7 +142,7 @@ function render(stand) {
     let winObj = winCheck(stand)
 
     if (winObj.result === true) {
-        alertContainer.innerHTML = `<div class='alert alert-primary fs-2' role='alert'>${winObj.message}</div>`
+        alertContainer.innerHTML = `<div role='alert'>${winObj.message}</div>`
         hitButton.setAttribute("disabled", "")
         hitButton.style.opacity = 0.5
         standButton.setAttribute("disabled", "")
@@ -153,7 +153,7 @@ function render(stand) {
 function setup() {
     usedCards = []
 
-    restartButton.classList.add("d-none")
+    restartButton.style.display = "none"
 
     alertContainer.innerHTML = ""
 
@@ -194,8 +194,8 @@ standButton.addEventListener("click", function() {
 })
 
 playButton.addEventListener("click", function() {
-    playDisplay.classList.add("d-none")
-    gameDisplay.classList.remove("d-none")
+    playDisplay.style.display = "none"
+    gameDisplay.style.display = "block"
     setup()
 })
 

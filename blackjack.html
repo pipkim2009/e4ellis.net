@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5983008898538711" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="E4Ellis.net - The best website ever made! 'WOW It's better then the entire internet!' --Mr Internet Owner">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="./assets/images/favicon.png">
-        <title>E4Ellis.net | BlackJack</title>
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/index.css">
+        <title>E4Ellis.net | Blackjack</title>
     </head>
-    <body class="bg-dark">
+    <body>
 
         <!-- Header -->
-        <nav class="navbar navbar-expand-lg bg-dark px-5 shadow-lg">
-            <a class="navbar-brand fw-bold text-white" href="index.html">E4Ellis.net</a>
-        </nav>
+        <header>
+            <a id="header-title" href="/">E4Ellis.net</a>
+        </header>
 
-        <!-- Play Display -->
-        <section id="play-display" class="container-fluid p-3" style="background-color: black;">
-            <h1 class="text-light fw-bold text-center fs-1">BlackJack</h1>
-            <button id="play-button" class="btn btn-outline-primary mx-auto p-3 mt-3 fs-2 d-block">Play</button>
-            <button class="btn btn-outline-danger mx-auto p-3 mt-3 fs-2 d-block" type="button" data-bs-toggle="collapse" data-bs-target="#house-rules-infomation" aria-expanded="false" aria-controls="house-rules-infomation">House Rules</button>
-
-            <div id="house-rules-infomation" class="collapse card p-3 mt-3 border-secondary" style="background-color: black; color: #2E8B57;">
+        <!-- Hero/Play Display -->
+        <section id="bj-menu-section">
+            <h1 id="bj-title">BlackJack</h1>
+            <button id="bj-play-button">Play</button>
+            <div id="bj-rules">
+                House Rules:<br />
                 • The objective is to beat the system (dealer) by having a hand value as close to 21 as possible without going over.<br />
                 • Cards 2 through 10 are worth their face value.<br />
                 • J, Q, and K are each worth 10 points.<br />
@@ -43,44 +41,31 @@
         </section>
 
         <!-- Game Display -->
-        <section id="game-display" class="container-fluid p-3 d-none" style="background-color: black;">
-            <h1 class="text-light fw-bold text-center fs-1">BlackJack</h1>
-            <div id="alert-container"></div>
-
-            <div class="row justify-content-evenly my-3">
-                <button id="hit-button" class="col-4 btn btn-outline-primary fs-2 rounded">Hit</button>
-                <button id="restart-button" class="col-4 btn btn-outline-warning fs-2 rounded d-none">Restart</button>
-                <button id="stand-button" class="col-4 btn btn-outline-danger fs-2 rounded">Stand</button>
+        <section id="bj-game-section">
+            <h2 id="bj-title">BlackJack</h2>
+            <div id="bj-alert-container"></div>
+            <div id="bj-actions-row">
+                <button id="bj-hit-button">Hit</button>
+                <button id="bj-restart-button">Restart</button>
+                <button id="bj-stand-button">Stand</button>
             </div>
-
-            <div class="row justify-content-evenly">
-                <div class="col-12 col-sm-6">
-                    <h2 id="player-score" class="text-center text-light fw-bold"></h2>
-                    <div id="player-cards" class="d-flex align-items-center justify-content-center m-xl-5" style="position: relative; height: 200px;"></div>
+            <div id="bj-game-row">
+                <div id="bj-game-col-1">
+                    <h3 id="bj-player-score"></h3>
+                    <div id="bj-player-cards"></div>
                 </div>
-                <div class="col-12 col-sm-6">
-                    <h2 id="system-score" class="text-center text-light fw-bold"></h2>
-                    <div id="system-cards" class="d-flex align-items-center justify-content-center m-xl-5" style="position: relative; height: 200px;"></div>
+                <div id="bj-game-col-2">
+                    <h3 id="bj-system-score"></h3>
+                    <div id="bj-system-cards"></div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="bg-dark py-3 text-center">
-            <small class="text-secondary">© 2025 Ellis Mark Hughes. All rights reserved.</small>
+        <footer>
+            <small>© 2025 Ellis Mark Hughes. All rights reserved.</small>
         </footer>
 
         <script src="blackjack.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <style>
-            #player-cards img {
-                box-shadow: 0 0 15px 1px goldenrod;
-                border-radius: 8px;
-            }
-            #system-cards img {
-                box-shadow: 0 0 15px 1px #2E8B57;
-                border-radius: 8px;
-            }
-        </style>
     </body>
 </html>

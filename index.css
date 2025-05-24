@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 * {
     padding: 0;
     margin: 0;
@@ -8,6 +9,7 @@ body {
     background-color: #212427;
 }
 
+/* Header */
 header {
     display: flex;
     background-color: #212427;
@@ -24,9 +26,9 @@ header {
     font-weight: 900w;
 }
 
+/* Hero Section */
 #hero-section {
     background-color: #f3f3ff;
- 
 }
 
 #hero-row {
@@ -53,6 +55,7 @@ header {
     margin-bottom: 10px;
 }
 
+/* Fun Fact */
 #fun-fact-title {
     background-color: #0d6efd;
     color: #f3f3ff;
@@ -68,12 +71,14 @@ header {
     color: #0d6efd;
 }
 
+/* Dancing Cow */
 #dancing-cow {
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
+/* Projects Section */
 #projects-section {
     background-color: #212427;
     color: #f3f3ff;
@@ -97,14 +102,22 @@ header {
     text-align: center;
 }
 
+/* Project Buttons */
+#project-btn-1,
+#project-btn-2,
+#project-btn-3 {
+    width: 75%;
+    display: block;
+    margin: auto;
+    border-radius: 4px;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
 #project-btn-1 {
     border: 1px solid #0d6efd;
     background-color: rgba(255,255,255,0);
-    border-radius: 4px;
-    padding: 5px 40px;
-    text-decoration: none;
     color: #0d6efd;
-
 }
 
 #project-btn-1:hover {
@@ -112,23 +125,144 @@ header {
     color: #f3f3ff;
 }
 
-#project-btn-2, #project-btn-3 {
+#project-btn-2,
+#project-btn-3 {
     border: 1px solid #f3f3ff;
     background-color: rgba(255,255,255,0);
-    border-radius: 4px;
-    padding: 5px 40px;
-    text-decoration: none;
     color: #f3f3ff;
 }
 
-#project-btn-2:hover, #project-btn-3:hover {
+#project-btn-2:hover,
+#project-btn-3:hover {
     background-color: #f3f3ff;
     color: #212427;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #212427;
-    color: #f3f3ff
+    color: #f3f3ff;
+}
+
+/* Blackjack Menu & Game Sections */
+#bj-menu-section,
+#bj-game-section {
+    color: #f3f3ff;
+}
+
+/* Blackjack Menu */
+#bj-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#bj-play-button,
+#bj-rules-toggle {
+    display: block;
+    margin: auto;
+    border-radius: 4px;
+    padding: 5px 0;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255,255,255,0);
+}
+
+#bj-play-button {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    width: 25%;
+}
+
+#bj-play-button:hover {
+    background-color: #0d6efd;
+    color: #f3f3ff;
+}
+
+#bj-rules-toggle {
+    border: 1px solid #f3f3ff;
+    color: #f3f3ff;
+    width: 25%;
+}
+
+#bj-rules {
+    background-color: #000000;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: 1px solid #f3f3ff;
+}
+
+/* Blackjack Game Section */
+#bj-game-section {
+    display: none;
+    padding-bottom: 30vw;
+}
+
+#bj-alert-container {
+    text-align: center;
+    color: #f3f3ff;
+}
+
+/* Blackjack Actions Row */
+#bj-actions-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Blackjack Game Buttons */
+#bj-hit-button,
+#bj-restart-button,
+#bj-stand-button {
+    display: block;
+    margin: auto;
+    border: 1px solid #0d6efd;
+    background-color: rgba(255,255,255,0);
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 5px 0px;
+    width: 20%;
+    font-size: 2rem;
+}
+
+#bj-hit-button:hover,
+#bj-restart-button:hover,
+#bj-stand-button:hover {
+    background-color: #0d6efd;
+    color: #f3f3ff;
+}
+
+/* Blackjack Game Layout */
+#bj-game-row {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#bj-game-col-1,
+#bj-game-col-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Blackjack Cards */
+#bj-player-cards,
+#bj-system-cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#bj-player-cards > img,
+#bj-system-cards > img {
+    width: 20vw;
+    height: auto;
 }
