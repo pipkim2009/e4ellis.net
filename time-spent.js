@@ -1,4 +1,4 @@
-const randomFunFact = document.getElementById("random-fun-fact")
+const randomFunFact = document.getElementById("fun-fact-text")
 
 const startTime = new Date()
 const previousTimeSpent = parseInt(localStorage.getItem("totalTimeSpent")) || 0 // if fails set 0
@@ -23,7 +23,7 @@ function timeSpentRefresh() {
     randomFunFact.textContent = `You have spent ${timeText} watching this cow Moo!`
 
     if (totalTimeSpent >= 120) {
-        randomFunFact.innerHTML += ` <span class="badge bg-warning">WOW You need help!</span>`
+        randomFunFact.innerHTML += ` <span id="fun-fact-joke">WOW You need help!</span>`
     }
 
     localStorage.setItem("totalTimeSpent", totalTimeSpent)

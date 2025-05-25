@@ -73,6 +73,14 @@ header {
     color: #0d6efd;
 }
 
+#fun-fact-joke {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+    border-radius: 7px;
+    white-space: nowrap;
+    padding: 1px;
+}
+
 #dancing-cow {
     margin-left: auto;
     margin-right: auto;
