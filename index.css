@@ -1,4 +1,3 @@
-/* Reset & Base Styles */
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +8,6 @@ body {
     background-color: #212427;
 }
 
-/* Header */
 header {
     display: flex;
     background-color: #212427;
@@ -19,21 +17,26 @@ header {
 }
 
 #header-title {
-    color: #f3f3ff;
+    color: #e4e4ff;
     text-decoration: none;
     font-size: 30px;
     margin-left: 20px;
-    font-weight: 900w;
+    font-weight: 900;
 }
 
-/* Hero Section */
 #hero-section {
-    background-color: #f3f3ff;
+    background-color: #e4e4ff;
 }
 
 #hero-row {
     display: flex;
-    padding: 40px;
+    padding: 50px;
+}
+
+@media (max-width: 768px) {
+    #hero-row {
+        flex-direction: column;
+    }
 }
 
 #hero-col-1, #hero-col-2 {
@@ -41,7 +44,7 @@ header {
 }
 
 #welcome-opening {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 400;
 }
 
@@ -55,10 +58,9 @@ header {
     margin-bottom: 10px;
 }
 
-/* Fun Fact */
 #fun-fact-title {
     background-color: #0d6efd;
-    color: #f3f3ff;
+    color: #e4e4ff;
     border-radius: 4px;
     padding: 1px;
     display: block;
@@ -71,20 +73,19 @@ header {
     color: #0d6efd;
 }
 
-/* Dancing Cow */
 #dancing-cow {
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-/* Projects Section */
 #projects-section {
     background-color: #212427;
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
 #projects-title {
+    width: 100%;
     padding-top: 20px;
     text-align: center;
     font-size: 1.5rem;
@@ -97,12 +98,18 @@ header {
     padding-bottom: 40px;
 }
 
+@media (max-width: 768px) {
+    #projects-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 #projects-col-1, #projects-col-2, #projects-col-3 {
     flex: 1;
     text-align: center;
 }
 
-/* Project Buttons */
 #project-btn-1,
 #project-btn-2,
 #project-btn-3 {
@@ -115,48 +122,56 @@ header {
 }
 
 #project-btn-1 {
+    display: block;
+    margin: auto;
     border: 1px solid #0d6efd;
     background-color: rgba(255,255,255,0);
     color: #0d6efd;
+    border-radius: 4px;
+    padding: 5px 0px;
+    font-size: 1.4rem;
 }
 
 #project-btn-1:hover {
     background-color: #0d6efd;
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
 #project-btn-2,
 #project-btn-3 {
-    border: 1px solid #f3f3ff;
+    display: block;
+    margin: auto;
+    border: 1px solid #e4e4ff;
     background-color: rgba(255,255,255,0);
-    color: #f3f3ff;
+    color: #e4e4ff;
+    border-radius: 4px;
+    padding: 5px 0px;
+    font-size: 1.4rem;
 }
 
 #project-btn-2:hover,
 #project-btn-3:hover {
-    background-color: #f3f3ff;
+    background-color: #e4e4ff;
     color: #212427;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #212427;
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
-/* Blackjack Menu & Game Sections */
 #bj-menu-section,
 #bj-game-section {
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
-/* Blackjack Menu */
 #bj-title {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 #bj-play-button,
@@ -172,20 +187,21 @@ footer {
 }
 
 #bj-play-button {
+    display: block;
+    margin: auto;
     border: 1px solid #0d6efd;
+    background-color: rgba(255,255,255,0);
     color: #0d6efd;
-    width: 25%;
+    border-radius: 4px;
+    padding: 5px 0px;
+    width: 35%;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 #bj-play-button:hover {
     background-color: #0d6efd;
-    color: #f3f3ff;
-}
-
-#bj-rules-toggle {
-    border: 1px solid #f3f3ff;
-    color: #f3f3ff;
-    width: 25%;
+    color: #e4e4ff;
 }
 
 #bj-rules {
@@ -194,40 +210,55 @@ footer {
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-    border: 1px solid #f3f3ff;
+    border: 1px solid #e4e4ff;
 }
 
-/* Blackjack Game Section */
+#bj-alert {
+    border: 1px solid #e4e4ff;
+}
+
 #bj-game-section {
     display: none;
-    padding-bottom: 30vw;
+    padding-bottom: 25vw;
+}
+
+@media (max-width: 600px) {
+    #bj-game-section {
+        padding-bottom: 40vw;
+    }
 }
 
 #bj-alert-container {
     text-align: center;
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
-/* Blackjack Actions Row */
 #bj-actions-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-/* Blackjack Game Buttons */
+@media (max-width: 600px) {
+    #bj-actions-row {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 #bj-hit-button,
 #bj-restart-button,
 #bj-stand-button {
-    display: block;
-    margin: auto;
     border: 1px solid #0d6efd;
     background-color: rgba(255,255,255,0);
     color: #0d6efd;
     border-radius: 4px;
     padding: 5px 0px;
-    width: 20%;
+    width: 60%;
     font-size: 2rem;
 }
 
@@ -235,14 +266,32 @@ footer {
 #bj-restart-button:hover,
 #bj-stand-button:hover {
     background-color: #0d6efd;
-    color: #f3f3ff;
+    color: #e4e4ff;
 }
 
-/* Blackjack Game Layout */
+#bj-restart-button {
+    border: 1px solid #e4e4ff;
+    color: #e4e4ff;
+}
+
+#bj-restart-button:hover {
+    background-color: #e4e4ff;
+    color: #212427;
+}
+
 #bj-game-row {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    #bj-game-row {
+        flex-direction: column;
+        gap: 40vw;
+        align-items: center;
+    }
 }
 
 #bj-game-col-1,
@@ -253,16 +302,22 @@ footer {
     text-align: center;
 }
 
-/* Blackjack Cards */
 #bj-player-cards,
 #bj-system-cards {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 5vw;
 }
 
 #bj-player-cards > img,
 #bj-system-cards > img {
-    width: 20vw;
+    width: 15vw;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    #bj-player-cards > img,
+    #bj-system-cards > img {
+        width: 25vw;
+    }
 }
