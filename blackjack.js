@@ -142,7 +142,7 @@ function render(stand) {
     let winObj = winCheck(stand)
 
     if (winObj.result === true) {
-        alertContainer.innerHTML = `<div role='alert'>${winObj.message}</div>`
+        alertContainer.innerHTML = `<div>${winObj.message}</div>`
         hitButton.setAttribute("disabled", "")
         hitButton.style.opacity = 0.5
         standButton.setAttribute("disabled", "")
