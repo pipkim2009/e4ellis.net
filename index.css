@@ -33,7 +33,7 @@ header {
     padding: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     #hero-row {
         flex-direction: column;
     }
@@ -106,7 +106,7 @@ header {
     padding-bottom: 40px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     #projects-row {
         flex-direction: column;
         gap: 10px;
