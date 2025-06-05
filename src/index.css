@@ -73,7 +73,6 @@ header {
     background-color: #0d6efd;
     color: #e4e4ff;
     border-radius: 4px;
-    padding: 1vh;
     display: block;
     width: 5rem;
     font-weight: 600;
@@ -203,6 +202,7 @@ footer {
 
 #project-title {
     font-size: 2rem;
+    text-align: center;
 }
 
 #project-menu-play-button {
@@ -219,4 +219,10 @@ footer {
 #project-menu-play-button:hover {
     background-color: #0d6efd;
     color: #e4e4ff;
+}
+
+#bj-section {
+    background-color: #e4e4ff;
+    color: #212427;
+    height: calc(100vh - 60px);
 }
