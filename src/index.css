@@ -19,18 +19,29 @@ header {
 #header-title {
     color: #e4e4ff;
     text-decoration: none;
-    font-size: 30px;
-    margin-left: 20px;
+    font-size: 1.5rem;
+    margin-left: 5vw;
     font-weight: 900;
+}
+
+#header-title:hover {
+    color: #0d6efd;
 }
 
 #hero-section {
     background-color: #e4e4ff;
+    height: 40vh;
+}
+
+@media (max-width: 600px) {
+    #hero-section {
+        height: 60vh;
+    }
 }
 
 #hero-row {
     display: flex;
-    padding: 50px;
+    padding: 5vh 5vw;
 }
 
 @media (max-width: 600px) {
@@ -44,7 +55,7 @@ header {
 }
 
 #welcome-opening {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 400;
 }
 
@@ -54,15 +65,15 @@ header {
 }
 
 #welcome-text {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 #fun-fact-title {
     background-color: #0d6efd;
     color: #e4e4ff;
     border-radius: 4px;
-    padding: 1px;
+    padding: 1vh;
     display: block;
     width: 5rem;
     font-weight: 600;
@@ -78,23 +89,30 @@ header {
     color: #e4e4ff;
     border-radius: 7px;
     white-space: nowrap;
-    padding: 1px;
+    padding: 1vh;
 }
 
 #dancing-cow {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    width: 40vh;
+}
+
+@media (max-width: 600px) {
+    #dancing-cow {
+        width: 30vh;
+    }
 }
 
 #projects-section {
     background-color: #212427;
     color: #e4e4ff;
+    padding-top: 5vh;
 }
 
 #projects-title {
     width: 100%;
-    padding-top: 20px;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 900;
@@ -102,14 +120,14 @@ header {
 
 #projects-row {
     display: flex;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
 @media (max-width: 600px) {
     #projects-row {
         flex-direction: column;
-        gap: 10px;
+        gap: 2vh;
     }
 }
 
@@ -125,7 +143,7 @@ header {
     display: block;
     margin: auto;
     border-radius: 4px;
-    padding: 5px 0;
+    padding: 2vw 0;
     text-decoration: none;
 }
 
@@ -136,7 +154,7 @@ header {
     background-color: transparent;
     color: #0d6efd;
     border-radius: 4px;
-    padding: 5px 0px;
+    padding: 1vw 0px;
     font-size: 1.4rem;
 }
 
@@ -153,7 +171,7 @@ header {
     background-color: transparent;
     color: #e4e4ff;
     border-radius: 4px;
-    padding: 5px 0px;
+    padding: 1vw 0px;
     font-size: 1.4rem;
 }
 
@@ -164,51 +182,41 @@ header {
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #212427;
     color: #e4e4ff;
+    height: 10vh;
 }
 
-#project-menu-section,
-#project-main-section {
+#project-menu-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: #e4e4ff;
     color: #212427;
-    padding-bottom: 20px;
+    height: calc(100vh - 60px);
 }
 
 #project-title {
-    text-align: center;
-    padding-top: 20px;
-    margin-bottom: 20px;
     font-size: 2rem;
 }
 
-#project-play-button {
-    display: block;
-    margin: auto;
+#project-menu-play-button {
     border: 2px solid #0d6efd;
     background-color: transparent;
     color: #0d6efd;
     border-radius: 4px;
-    padding: 5px 0px;
-    width: 35%;
+    padding: 1vw 0;
+    width: 40%;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-top: 5vh;
 }
 
-#project-play-button:hover {
+#project-menu-play-button:hover {
     background-color: #0d6efd;
     color: #e4e4ff;
 }
-
-#project-guide {
-    background-color: #212427;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    border: 2px solid #0d6efd;
-    color: #e4e4ff;
-}
-

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ProjectMenu } from '../components/ProjectMenu.jsx';
 
 export function Blackjack() {
 
@@ -6,10 +7,7 @@ export function Blackjack() {
 
     return (
         <>
-            <h1>Blackjack</h1>
-            <button onClick={() => setActive(!active)}>
-                {active ? "Stop" : "Play"}
-            </button>
+            {active ? null : <ProjectMenu setActiveL={setActive} />}
         </>
     )
 }
