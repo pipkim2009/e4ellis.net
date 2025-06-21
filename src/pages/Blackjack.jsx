@@ -16,15 +16,17 @@ export function Blackjack() {
                     <button id="bj-hit-button">Restart</button>
                     <button id="bj-stand-button">Stand</button>
                 </div>
-                <div id="bj-player-col">
-                    <span id="bj-player-title">Player</span>
-                    <span id="bj-player-hand-elm">Hand: </span>
-                    <div id="bj-player-cards-container"></div>
-                </div>
-                <div id="bj-dealer-col">
-                    <span id="bj-dealer-title">Dealer</span>
-                    <span id="bj-dealer-hand-elm">Hand: </span>
-                    <div id="bj-dealer-cards-container"></div>
+                <div id="bj-col-row">
+                    <div id="bj-player-col">
+                        <span id="bj-player-title">Player</span>
+                        <span id="bj-player-hand-elm">Hand: </span>
+                        <div id="bj-player-cards-container"></div>
+                    </div>
+                    <div id="bj-dealer-col">
+                        <span id="bj-dealer-title">Dealer</span>
+                        <span id="bj-dealer-hand-elm">Hand: </span>
+                        <div id="bj-dealer-cards-container"></div>
+                    </div>
                 </div>
             </section>
             

@@ -141,20 +141,16 @@ header {
     width: 75%;
     display: block;
     margin: auto;
+    background-color: transparent;
     border-radius: 4px;
-    padding: 2vw 0;
     text-decoration: none;
+    padding: 1vh 0;
+    font-size: 1.5rem;
 }
 
 #project-btn-1 {
-    display: block;
-    margin: auto;
     border: 1px solid #0d6efd;
-    background-color: transparent;
     color: #0d6efd;
-    border-radius: 4px;
-    padding: 1vw 0px;
-    font-size: 1.4rem;
 }
 
 #project-btn-1:hover {
@@ -164,14 +160,8 @@ header {
 
 #project-btn-2,
 #project-btn-3 {
-    display: block;
-    margin: auto;
     border: 1px solid #e4e4ff;
-    background-color: transparent;
     color: #e4e4ff;
-    border-radius: 4px;
-    padding: 1vw 0px;
-    font-size: 1.4rem;
 }
 
 #project-btn-2:hover,
@@ -225,4 +215,55 @@ footer {
     background-color: #e4e4ff;
     color: #212427;
     height: calc(100vh - 60px);
+}
+
+#bj-button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+}
+
+@media (max-width: 600px) {
+    #bj-button-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#bj-button-row button {
+    border: 2px solid #0d6efd;
+    background-color: transparent;
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 0.5vw 0;
+    width: 30vw;
+    font-size: 1.5rem;
+}
+
+#bj-button-row button:hover {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+}
+
+@media (max-width: 600px) {
+    #bj-button-row button {
+        width: 80vw;
+    }
+}
+
+#bj-col-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#bj-player-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bj-dealer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
