@@ -11,7 +11,7 @@ export function Hero() {
                     <span id="fun-fact-text" aria-live="polite">Your device is so bad that not even this fact can load.</span>
                 </div>
                 <div id="hero-col-2">
-                    <img id="dancing-cow" src="/src/assets/gifs/dancing-cow.gif" alt="dancing cow animation" loading="lazy"/>
+                    <img id="dancing-cow" src="assets/gifs/dancing-cow.gif" alt="dancing cow animation" loading="lazy"/>
                 </div>
             </div>
         </section>
