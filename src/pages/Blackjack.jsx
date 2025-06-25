@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { ProjectMenu } from '../components/ProjectMenu.jsx';
-import { hit } from '../blackjack.js';
+import { endCheck, hit } from '../blackjack.js';
+import { initialHit } from '../blackjack.js';
 
 export function Blackjack() {
 
-    const [active, setActive] = useState(false);
+    const [projectState, setProjectState] = useState("menu");
     const [deck ,setDeck] = useState([]);
     const [playerHand, setPlayerHand] = useState([]);
     const [dealerHand, setDealerHand] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
     const [dealerScore, setDealerScore] = useState(0);
-    const [usedCards, setUsedCards] = useState([]);
+    const [outcomeMessage, setOutcomeMessage] = useState("");
 
     useEffect(() => {
         fetch('assets/json//deck.json')
@@ -19,22 +20,32 @@ export function Blackjack() {
     }, []);
 
     useEffect(() => {
-        if (deck.length === 52 && playerHand.length === 0 && dealerHand.length === 0) {
-            hit(deck, playerHand, setPlayerHand, 2, usedCards, setUsedCards, playerScore, setPlayerScore);
-            hit(deck, dealerHand, setDealerHand, 2, usedCards, setUsedCards, dealerScore, setDealerScore);
-        } else return;
-    }, [deck]);
+        if (projectState === "play" && deck.length === 52 && playerHand.length === 0 && dealerHand.length === 0) {
+            initialHit(deck, setDeck, playerHand, setPlayerHand, dealerHand, setDealerHand, setPlayerScore, setDealerScore);
+        }
+    }, [deck, projectState]);
+
+    useEffect(() => {
+        if (projectState === "play") {
+            endCheck("hit", playerScore, dealerScore, setOutcomeMessage, setProjectState);
+        }
+    }, [playerScore, dealerScore])
 
     return (
         <>
-            {active ?
-
+            {projectState != "menu" &&
             <section id="bj-section">
                 <h1 id="project-title">BlackJack</h1>
                 <div id="bj-button-row">
-                    <button id="bj-deal-button">Hit</button>
-                    <button id="bj-hit-button">Restart</button>
-                    <button id="bj-stand-button">Stand</button>
+                    {projectState === "play" &&
+                    <>
+                        <button id="bj-hit-button" onClick={() => hit(deck, setDeck, playerHand, setPlayerHand, setPlayerScore)}>Hit</button>
+                        <button id="bj-stand-button">Stand</button>
+                    </>
+                    }
+                    {projectState === "end" &&
+                    <button id="bj-restart-button">Restart</button>
+                    }
                 </div>
                 <div id="bj-col-row">
                     <div id="bj-player-col">
@@ -59,8 +70,11 @@ export function Blackjack() {
                     </div>
                 </div>
             </section>
+            }
 
-            : <ProjectMenu setActiveL={setActive} />}
+            {projectState === "menu" &&
+            <ProjectMenu setProjectState={setProjectState} />
+            }
         </>
     )
 }
