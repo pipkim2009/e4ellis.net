@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ProjectMenu } from '../components/ProjectMenu.jsx';
-import { endCheck, hit } from '../blackjack.js';
+import { calculateScore, endCheck, hit } from '../blackjack.js';
 import { initialHit } from '../blackjack.js';
+import { stand } from '../blackjack.js';
+import { resetGame } from '../blackjack.js';
 
 export function Blackjack() {
 
@@ -12,12 +14,14 @@ export function Blackjack() {
     const [playerScore, setPlayerScore] = useState(0);
     const [dealerScore, setDealerScore] = useState(0);
     const [outcomeMessage, setOutcomeMessage] = useState("");
-
+    
     useEffect(() => {
-        fetch('assets/json//deck.json')
-            .then(response => response.json())
-            .then(setDeck);
-    }, []);
+        if (projectState === "menu") {
+            fetch('assets/json//deck.json')
+                .then(response => response.json())
+                .then(setDeck);
+        }
+    }, [projectState]);
 
     useEffect(() => {
         if (projectState === "play" && deck.length === 52 && playerHand.length === 0 && dealerHand.length === 0) {
@@ -27,24 +31,34 @@ export function Blackjack() {
 
     useEffect(() => {
         if (projectState === "play") {
-            endCheck("hit", playerScore, dealerScore, setOutcomeMessage, setProjectState);
+            endCheck("hit", playerScore, dealerScore, setOutcomeMessage, setProjectState, dealerHand, setDealerScore);
         }
     }, [playerScore, dealerScore])
+
+    useEffect(() => {
+        if (projectState === "play" && dealerHand.length > 2) {
+            endCheck("stand", playerScore, dealerScore, setOutcomeMessage, setProjectState, dealerHand, setDealerScore);
+            stand(deck, setDeck, dealerHand, setDealerHand, dealerScore, setDealerScore);
+        }
+    }, [dealerHand])
 
     return (
         <>
             {projectState != "menu" &&
             <section id="bj-section">
                 <h1 id="project-title">BlackJack</h1>
+                {outcomeMessage != "" &&
+                    <div id="bj-outcome-display">{outcomeMessage}</div>
+                }
                 <div id="bj-button-row">
                     {projectState === "play" &&
                     <>
                         <button id="bj-hit-button" onClick={() => hit(deck, setDeck, playerHand, setPlayerHand, setPlayerScore)}>Hit</button>
-                        <button id="bj-stand-button">Stand</button>
+                        <button id="bj-stand-button" onClick={() => stand(deck, setDeck, dealerHand, setDealerHand, dealerScore, setDealerScore)}>Stand</button>
                     </>
                     }
                     {projectState === "end" &&
-                    <button id="bj-restart-button">Restart</button>
+                    <button id="bj-restart-button" onClick={() => resetGame(setDeck, setPlayerHand, setDealerHand, setPlayerScore, setDealerScore, setOutcomeMessage, setProjectState)}>Restart</button>
                     }
                 </div>
                 <div id="bj-col-row">
@@ -63,8 +77,10 @@ export function Blackjack() {
                         <span id="bj-dealer-score-elm">Score: {dealerScore}</span>
                         <div id="bj-dealer-hand-container">
                             <span id="bj-hand-span">Hand:</span>
-                            {dealerHand.map((i) => (
-                                <img src={i.path}></img>
+                            {dealerHand.map((card, i) => (
+                                projectState === "play" && i === 0
+                                ? <img src="assets/images/cards/hidden-card.png"/>
+                                : <img src={card.path}/>
                             ))}
                         </div>
                     </div>
