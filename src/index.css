@@ -261,30 +261,49 @@ footer {
     }
 }
 
-#bj-col-row {
+#bj-hand-row {
     display: flex;
     justify-content: space-evenly;
 }
 
-#bj-player-col {
+@media (max-width: 600px) {
+    #bj-hand-row {
+        flex-direction: column;
+        gap: 15vw;
+    }
+}
+
+#bj-player-col, #bj-dealer-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#bj-dealer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#bj-hand-span {
-    display: block;
     text-align: center;
 }
 
-#bj-player-col img,
-#bj-dealer-col img {
-    width: 10vw;
+@media (max-width: 600px) {
+    #bj-player-col {
+        margin-bottom: 17vw;
+    }
+}
+
+#bj-player-hand-container,
+#bj-dealer-hand-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#bj-player-hand-container > img,
+#bj-dealer-hand-container > img {
+    margin-top: 2vw;
+    position: absolute;
+    width: 15vw;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    #bj-player-hand-container > img,
+    #bj-dealer-hand-container > img {
+        width: 20vw;
+    }
 }

@@ -36,9 +36,8 @@ export function Blackjack() {
     }, [playerScore, dealerScore])
 
     useEffect(() => {
-        if (projectState === "play" && dealerHand.length > 2) {
-            endCheck("stand", playerScore, dealerScore, setOutcomeMessage, setProjectState, dealerHand, setDealerScore);
-            stand(deck, setDeck, dealerHand, setDealerHand, dealerScore, setDealerScore);
+        if (dealerHand.length > 2) {
+            stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState);
         }
     }, [dealerHand])
 
@@ -54,21 +53,20 @@ export function Blackjack() {
                     {projectState === "play" &&
                     <>
                         <button id="bj-hit-button" onClick={() => hit(deck, setDeck, playerHand, setPlayerHand, setPlayerScore)}>Hit</button>
-                        <button id="bj-stand-button" onClick={() => stand(deck, setDeck, dealerHand, setDealerHand, dealerScore, setDealerScore)}>Stand</button>
+                        <button id="bj-stand-button" onClick={() => stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState)}>Stand</button>
                     </>
                     }
                     {projectState === "end" &&
                     <button id="bj-restart-button" onClick={() => resetGame(setDeck, setPlayerHand, setDealerHand, setPlayerScore, setDealerScore, setOutcomeMessage, setProjectState)}>Restart</button>
                     }
                 </div>
-                <div id="bj-col-row">
+                <div id="bj-hand-row">
                     <div id="bj-player-col">
                         <span id="bj-player-title">Player</span>
                         <span id="bj-player-score-elm">Score: {playerScore}</span>
                         <div id="bj-player-hand-container">
-                            <span id="bj-hand-span">Hand:</span>
-                            {playerHand.map((i) => (
-                                <img src={i.path}></img>
+                            {playerHand.map((card, i) => (
+                                <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src={card.path}></img>
                             ))}
                         </div>
                     </div>
@@ -76,11 +74,10 @@ export function Blackjack() {
                         <span id="bj-dealer-title">Dealer</span>
                         <span id="bj-dealer-score-elm">Score: {dealerScore}</span>
                         <div id="bj-dealer-hand-container">
-                            <span id="bj-hand-span">Hand:</span>
                             {dealerHand.map((card, i) => (
                                 projectState === "play" && i === 0
-                                ? <img src="assets/images/cards/hidden-card.png"/>
-                                : <img src={card.path}/>
+                                ? <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src="assets/images/cards/hidden-card.png"/>
+                                : <img key={i} style={{ transform: `rotate(${i * 15 }deg)`, zIndex: i }} src={card.path}/>
                             ))}
                         </div>
                     </div>

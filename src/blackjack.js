@@ -35,55 +35,88 @@ export function hit(deck, setDeck, hand, setHand, setScore) {
 
 export function calculateScore(hand, setScore, hide) {
     let score = 0
+    let aceCount = 0
     for (let i = 0; i < hand.length; i++) {
         if (hand[i].value.length === 2) {
-            if (score + hand[i].value[1] > 21) {
-                score += hand[i].value[0];
-            } else {
-                score += hand[i].value[1];
-            }
+            aceCount++;
+            score += hand[i].value[1]; // Use the second value (11) for Ace
         } else {
-            score += hand[i].value[0]
+            score += hand[i].value[0]; // Use the first value for non-Ace cards
         }
     }
+    while (score > 21 && aceCount > 0) {
+        score -= 10; // Convert one Ace from 11 to 1
+        aceCount--;
+    }
+
     if (hide === true) {
         score -= hand[0].value[0]; // Hide the first card of the dealer
     }
     setScore(score);
 }
 
-export function stand(deck, setDeck, dealerHand, setDealerHand, dealerScore, setDealerScore) {
-    if (dealerScore <= 17) {
+export function stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState) {
+    let score = 0;
+    let aceCount = 0;
+
+    for (let i = 0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value.length === 2) {
+            aceCount++;
+            score += dealerHand[i].value[1]; // Use the second value (11) for Ace
+        } else {
+            score += dealerHand[i].value[0]; // Use the first value for non-Ace cards
+        }
+    }
+    while (score > 21 && aceCount > 0) {
+        score -= 10; // Convert one Ace from 11 to 1
+        aceCount--;
+    }
+
+    setDealerScore(score); // Update the dealer score
+    if (score <= 17) {
         setTimeout(() => {hit(deck, setDeck, dealerHand, setDealerHand, setDealerScore)}, 10);
+    } else {
+        endCheck("stand", playerScore, score, setOutcomeMessage, setProjectState, dealerHand, setDealerScore); // Check the end conditions
     }
 }
 
 export function endCheck(cause, playerScore, dealerScore, setOutcomeMessage, setProjectState, dealerHand, setDealerScore) {
     if (cause === "hit") {
         if (playerScore > 21) {
-           setOutcomeMessage(() =>  "Player busts! Dealer wins!");
+           setOutcomeMessage(() =>  "Player busts Dealer wins");
            setProjectState(() => "end");
            calculateScore(dealerHand, setDealerScore);
         } else if (dealerScore > 21) {
-           setOutcomeMessage(() => "Dealer busts! Player wins!");
+           setOutcomeMessage(() => "Dealer busts Player wins");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         } else if (playerScore === 21) {
-           setOutcomeMessage(() => "Player wins with Blackjack!");
+           setOutcomeMessage(() => "Player wins with Blackjack");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         } else if (dealerScore === 21) {
-           setOutcomeMessage(() => "Dealer wins with Blackjack!");
+           setOutcomeMessage(() => "Dealer wins with Blackjack");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         }
     } else if (cause === "stand") {
-        if (playerScore === dealerScore) {
-           setOutcomeMessage(() => "It's a tie!");
+        if (dealerScore > 21) {
+           setOutcomeMessage(() => "Dealer busts Player wins");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
+        }
+        else if (playerScore === dealerScore) {
+           setOutcomeMessage(() => "It's a tie");
+           setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         } else if (playerScore > dealerScore) {
-           setOutcomeMessage(() => "Player wins!");
+           setOutcomeMessage(() => "Player wins");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         } else {
-           setOutcomeMessage(() => "Dealer wins!");
+           setOutcomeMessage(() => "Dealer wins");
            setProjectState(() => "end");
+           calculateScore(dealerHand, setDealerScore);
         }
     }
 }
