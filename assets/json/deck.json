@@ -1,0 +1,210 @@
+[
+    {
+        "path": "/assets/images/cards/ac.png",
+        "value": [1, 11]
+    },
+    {
+        "path": "/assets/images/cards/ad.png",
+        "value": [1, 11]
+    },
+    {
+        "path": "/assets/images/cards/ah.png",
+        "value": [1, 11]
+    },
+    {
+        "path": "/assets/images/cards/as.png",
+        "value": [1, 11]
+    },
+    {
+        "path": "/assets/images/cards/2c.png",
+        "value": [2]
+    },
+    {
+        "path": "/assets/images/cards/2d.png",
+        "value": [2]
+    },
+    {
+        "path": "/assets/images/cards/2h.png",
+        "value": [2]
+    },
+    {
+        "path": "/assets/images/cards/2s.png",
+        "value": [2]
+    },
+    {
+        "path": "/assets/images/cards/3c.png",
+        "value": [3]
+    },
+    {
+        "path": "/assets/images/cards/3d.png",
+        "value": [3]
+    },
+    {
+        "path": "/assets/images/cards/3h.png",
+        "value": [3]
+    },
+    {
+        "path": "/assets/images/cards/3s.png",
+        "value": [3]
+    },
+    {
+        "path": "/assets/images/cards/4c.png",
+        "value": [4]
+    },
+    {
+        "path": "/assets/images/cards/4d.png",
+        "value": [4]
+    },
+    {
+        "path": "/assets/images/cards/4h.png",
+        "value": [4]
+    },
+    {
+        "path": "/assets/images/cards/4s.png",
+        "value": [4]
+    },
+    {
+        "path": "/assets/images/cards/5c.png",
+        "value": [5]
+    },
+    {
+        "path": "/assets/images/cards/5d.png",
+        "value": [5]
+    },
+    {
+        "path": "/assets/images/cards/5h.png",
+        "value": [5]
+    },
+    {
+        "path": "/assets/images/cards/5s.png",
+        "value": [5]
+    },
+    {
+        "path": "/assets/images/cards/6c.png",
+        "value": [6]
+    },
+    {
+        "path": "/assets/images/cards/6d.png",
+        "value": [6]
+    },
+    {
+        "path": "/assets/images/cards/6h.png",
+        "value": [6]
+    },
+    {
+        "path": "/assets/images/cards/6s.png",
+        "value": [6]
+    },
+    {
+        "path": "/assets/images/cards/7c.png",
+        "value": [7]
+    },
+    {
+        "path": "/assets/images/cards/7d.png",
+        "value": [7]
+    },
+    {
+        "path": "/assets/images/cards/7h.png",
+        "value": [7]
+    },
+    {
+        "path": "/assets/images/cards/7s.png",
+        "value": [7]
+    },
+    {
+        "path": "/assets/images/cards/8c.png",
+        "value": [8]
+    },
+    {
+        "path": "/assets/images/cards/8d.png",
+        "value": [8]
+    },
+    {
+        "path": "/assets/images/cards/8h.png",
+        "value": [8]
+    },
+    {
+        "path": "/assets/images/cards/8s.png",
+        "value": [8]
+    },
+    {
+        "path": "/assets/images/cards/9c.png",
+        "value": [9]
+    },
+    {
+        "path": "/assets/images/cards/9d.png",
+        "value": [9]
+    },
+    {
+        "path": "/assets/images/cards/9h.png",
+        "value": [9]
+    },
+    {
+        "path": "/assets/images/cards/9s.png",
+        "value": [9]
+    },
+    {
+        "path": "/assets/images/cards/10c.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/10d.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/10h.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/10s.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/jc.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/jd.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/jh.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/js.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/qc.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/qd.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/qh.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/qs.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/kc.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/kd.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/kh.png",
+        "value": [10]
+    },
+    {
+        "path": "/assets/images/cards/ks.png",
+        "value": [10]
+    }
+]
