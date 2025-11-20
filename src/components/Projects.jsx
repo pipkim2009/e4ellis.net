@@ -14,8 +14,8 @@ export function Projects() {
                         </Link>
                     </div>
                     <div className="project-button-container">
-                        <Link className="project-button project-button-secondary" to="/">
-                            Coming Soon!
+                        <Link className="project-button" to="/driving-sim">
+                            Driving Sim
                         </Link>
                     </div>
                     <div className="project-button-container">
@@ -33,8 +33,8 @@ export function Projects() {
                         </Link>
                     </div>
                     <div className="project-button-container">
-                        <Link className="project-button project-button-secondary" to="/">
-                            Coming Soon!
+                        <Link className="project-button" to="/driving-sim">
+                            Driving Sim
                         </Link>
                     </div>
                     <div className="project-button-container">

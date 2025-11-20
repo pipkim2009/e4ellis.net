@@ -53,25 +53,10 @@
   --transition-slow: 600ms;
 }
 
-/* Animated Gradient Background */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 /* Global Styles */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: linear-gradient(-45deg, #0a0e1a, #1a202c, #2d3748, #ffffff);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+  background: linear-gradient(-45deg, #000000, #667eea);
   color: var(--color-text-light);
   line-height: 1.6;
   min-height: 100vh;
@@ -142,6 +127,12 @@ img {
   z-index: 1000;
 }
 
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header-link {
   color: var(--color-text-light);
   font-size: var(--font-2xl);
@@ -153,6 +144,26 @@ img {
 
 .header-link:hover {
   color: var(--color-accent-2);
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  transition: all var(--transition-fast) ease;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: var(--color-accent-2);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer */
@@ -281,6 +292,144 @@ img {
   }
 }
 
+/* Casino Section */
+.casino {
+  background: transparent;
+  color: var(--color-text-light);
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.casino-title {
+  font-size: var(--font-4xl);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-light);
+}
+
+.casino-description {
+  font-size: var(--font-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.casino-grid-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.casino-grid-desktop {
+  display: none;
+}
+
+.casino-game-container {
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.casino-note {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Projects Page */
+.projects-page {
+  background: transparent;
+  color: var(--color-text-light);
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.projects-page-title {
+  font-size: var(--font-4xl);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-light);
+}
+
+.projects-page-description {
+  font-size: var(--font-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.projects-page-grid-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.projects-page-grid-desktop {
+  display: none;
+}
+
+.projects-page-item-container {
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.projects-page-item-container:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+/* About Page */
+.about {
+  background: transparent;
+  color: var(--color-text-light);
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.about-title {
+  font-size: var(--font-4xl);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-light);
+}
+
+.about-description {
+  font-size: var(--font-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-copyright {
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-2xl);
+  opacity: 0.7;
+}
+
 /* Projects Section */
 .projects {
   background: transparent;
@@ -338,22 +487,6 @@ img {
   transition: all var(--transition-medium) ease;
   box-shadow: var(--glass-shadow);
   position: relative;
-  overflow: hidden;
-}
-
-.project-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.project-button:hover::before {
-  left: 100%;
 }
 
 .project-button:hover {
@@ -430,22 +563,6 @@ img {
   width: 100%;
   max-width: 20rem;
   position: relative;
-  overflow: hidden;
-}
-
-.project-menu-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.project-menu-button:hover::before {
-  left: 100%;
 }
 
 .project-menu-button:hover {
@@ -533,22 +650,6 @@ img {
   transition: all var(--transition-medium) ease;
   box-shadow: var(--glass-shadow);
   position: relative;
-  overflow: hidden;
-}
-
-.blackjack-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.blackjack-button:hover::before {
-  left: 100%;
 }
 
 .blackjack-button:hover {
@@ -682,6 +783,53 @@ img {
   .hero-image {
     width: 28rem;
     height: 28rem;
+  }
+
+  /* About Page */
+  .about-title {
+    font-size: var(--font-5xl);
+  }
+
+  .about-description {
+    font-size: var(--font-xl);
+  }
+
+  /* Projects Page */
+  .projects-page-title {
+    font-size: var(--font-5xl);
+  }
+
+  .projects-page-description {
+    font-size: var(--font-xl);
+  }
+
+  .projects-page-grid-mobile {
+    display: none;
+  }
+
+  .projects-page-grid-desktop {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+  }
+
+  /* Casino */
+  .casino-title {
+    font-size: var(--font-5xl);
+  }
+
+  .casino-description {
+    font-size: var(--font-xl);
+  }
+
+  .casino-grid-mobile {
+    display: none;
+  }
+
+  .casino-grid-desktop {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
   }
 
   /* Projects */
