@@ -44,28 +44,28 @@ export function Blackjack() {
     return (
         <>
             {projectState != "menu" &&
-            <section className="bg-gray-100 text-gray-900 min-h-[calc(100vh-8rem)] lg:min-h-[calc(100vh-10rem)] p-4">
-                <div className="container mx-auto max-w-6xl">
-                    <h1 className="text-3xl lg:text-4xl font-bold text-center mb-6">BlackJack</h1>
-                    
+            <section className="blackjack">
+                <div className="blackjack-container">
+                    <h1 className="blackjack-title">BlackJack</h1>
+
                     {outcomeMessage != "" &&
-                        <div className="mx-auto text-blue-700 bg-blue-100 w-full max-w-4xl p-4 text-base lg:text-lg border-2 border-blue-500 rounded-lg mb-6 text-center">
+                        <div className="blackjack-outcome">
                             {outcomeMessage}
                         </div>
                     }
-                    
+
                     {/* Vertical Layout (Mobile/Tablet Portrait) */}
-                    <div className="flex flex-col gap-4 mb-8 lg:hidden">
+                    <div className="blackjack-controls-mobile">
                         {projectState === "play" &&
                         <>
-                            <button 
-                                className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-3 px-6 text-lg font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200" 
+                            <button
+                                className="blackjack-button"
                                 onClick={() => hit(deck, setDeck, playerHand, setPlayerHand, setPlayerScore)}
                             >
                                 Hit
                             </button>
-                            <button 
-                                className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-3 px-6 text-lg font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200" 
+                            <button
+                                className="blackjack-button"
                                 onClick={() => stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState)}
                             >
                                 Stand
@@ -73,8 +73,8 @@ export function Blackjack() {
                         </>
                         }
                         {projectState === "end" &&
-                        <button 
-                            className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-3 px-6 text-lg font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200" 
+                        <button
+                            className="blackjack-button"
                             onClick={() => resetGame(setDeck, setPlayerHand, setDealerHand, setPlayerScore, setDealerScore, setOutcomeMessage, setProjectState)}
                         >
                             Restart
@@ -83,17 +83,17 @@ export function Blackjack() {
                     </div>
 
                     {/* Landscape Layout (Desktop/Landscape Devices) */}
-                    <div className="hidden lg:flex lg:justify-center lg:gap-8">
+                    <div className="blackjack-controls-desktop">
                         {projectState === "play" &&
                         <>
-                            <button 
-                                className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-4 px-8 text-xl font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200 w-48" 
+                            <button
+                                className="blackjack-button"
                                 onClick={() => hit(deck, setDeck, playerHand, setPlayerHand, setPlayerScore)}
                             >
                                 Hit
                             </button>
-                            <button 
-                                className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-4 px-8 text-xl font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200 w-48" 
+                            <button
+                                className="blackjack-button"
                                 onClick={() => stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState)}
                             >
                                 Stand
@@ -101,66 +101,66 @@ export function Blackjack() {
                         </>
                         }
                         {projectState === "end" &&
-                        <button 
-                            className="border-2 border-blue-500 bg-transparent text-blue-500 rounded-lg py-4 px-8 text-xl font-bold hover:bg-blue-500 hover:text-gray-100 transition-colors duration-200 w-48" 
+                        <button
+                            className="blackjack-button"
                             onClick={() => resetGame(setDeck, setPlayerHand, setDealerHand, setPlayerScore, setDealerScore, setOutcomeMessage, setProjectState)}
                         >
                             Restart
                         </button>
                         }
                     </div>
-                    
+
                     {/* Vertical Layout (Mobile/Tablet Portrait) */}
-                    <div className="flex flex-col gap-8 lg:hidden">
-                        <div className="flex flex-col items-center text-center">
-                            <h2 className="text-2xl font-bold mb-2">Player</h2>
-                            <p className="text-xl mb-4">Score: {playerScore}</p>
-                            <div className="relative w-full h-56 flex justify-center">
+                    <div className="blackjack-hands-mobile">
+                        <div className="blackjack-hand">
+                            <h2 className="blackjack-hand-title">Player</h2>
+                            <p className="blackjack-hand-score">Score: {playerScore}</p>
+                            <div className="blackjack-cards">
                                 {playerHand.map((card, i) => (
-                                    <img 
-                                        key={i} 
-                                        className="absolute w-28 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src={card.path} 
+                                        }}
+                                        src={card.path}
                                         alt={`Player card ${i + 1}`}
                                     />
                                 ))}
                             </div>
                         </div>
-                        
-                        <div className="flex flex-col items-center text-center">
-                            <h2 className="text-2xl font-bold mb-2">Dealer</h2>
-                            <p className="text-xl mb-4">Score: {dealerScore}</p>
-                            <div className="relative w-full h-56 flex justify-center">
+
+                        <div className="blackjack-hand">
+                            <h2 className="blackjack-hand-title">Dealer</h2>
+                            <p className="blackjack-hand-score">Score: {dealerScore}</p>
+                            <div className="blackjack-cards">
                                 {dealerHand.map((card, i) => (
                                     projectState === "play" && i === 0
-                                    ? <img 
-                                        key={i} 
-                                        className="absolute w-28 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    ? <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src="assets/images/cards/hidden-card.png" 
+                                        }}
+                                        src="assets/images/cards/hidden-card.png"
                                         alt="Hidden dealer card"
                                     />
-                                    : <img 
-                                        key={i} 
-                                        className="absolute w-28 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    : <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src={card.path} 
+                                        }}
+                                        src={card.path}
                                         alt={`Dealer card ${i + 1}`}
                                     />
                                 ))}
@@ -169,56 +169,56 @@ export function Blackjack() {
                     </div>
 
                     {/* Landscape Layout (Desktop/Landscape Devices) */}
-                    <div className="hidden lg:flex lg:justify-between">
-                        <div className="flex-1 flex flex-col items-center text-center">
-                            <h2 className="text-2xl lg:text-3xl font-bold mb-2">Player</h2>
-                            <p className="text-xl lg:text-2xl mb-4">Score: {playerScore}</p>
-                            <div className="relative w-full h-80 flex justify-center">
+                    <div className="blackjack-hands-desktop">
+                        <div className="blackjack-hand">
+                            <h2 className="blackjack-hand-title">Player</h2>
+                            <p className="blackjack-hand-score">Score: {playerScore}</p>
+                            <div className="blackjack-cards">
                                 {playerHand.map((card, i) => (
-                                    <img 
-                                        key={i} 
-                                        className="absolute w-36 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src={card.path} 
+                                        }}
+                                        src={card.path}
                                         alt={`Player card ${i + 1}`}
                                     />
                                 ))}
                             </div>
                         </div>
-                        
-                        <div className="flex-1 flex flex-col items-center text-center">
-                            <h2 className="text-2xl lg:text-3xl font-bold mb-2">Dealer</h2>
-                            <p className="text-xl lg:text-2xl mb-4">Score: {dealerScore}</p>
-                            <div className="relative w-full h-80 flex justify-center">
+
+                        <div className="blackjack-hand">
+                            <h2 className="blackjack-hand-title">Dealer</h2>
+                            <p className="blackjack-hand-score">Score: {dealerScore}</p>
+                            <div className="blackjack-cards">
                                 {dealerHand.map((card, i) => (
                                     projectState === "play" && i === 0
-                                    ? <img 
-                                        key={i} 
-                                        className="absolute w-36 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    ? <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src="assets/images/cards/hidden-card.png" 
+                                        }}
+                                        src="assets/images/cards/hidden-card.png"
                                         alt="Hidden dealer card"
                                     />
-                                    : <img 
-                                        key={i} 
-                                        className="absolute w-36 h-auto object-contain" 
-                                        style={{ 
-                                            transform: `translateX(-50%) rotate(${i * 15}deg)`, 
+                                    : <img
+                                        key={i}
+                                        className="blackjack-card"
+                                        style={{
+                                            transform: `translateX(-50%) rotate(${i * 15}deg)`,
                                             zIndex: i,
                                             top: `${i * 2}px`,
                                             left: '50%'
-                                        }} 
-                                        src={card.path} 
+                                        }}
+                                        src={card.path}
                                         alt={`Dealer card ${i + 1}`}
                                     />
                                 ))}
