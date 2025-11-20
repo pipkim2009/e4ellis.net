@@ -10,18 +10,18 @@ export function Projects() {
                 {/* Vertical Layout (Mobile/Tablet Portrait) */}
                 <div className="projects-page-grid-mobile">
                     <div className="projects-page-item-container">
-                        <Link className="project-button project-button-secondary" to="/">
-                            Coming Soon!
-                        </Link>
+                        <a className="project-button" href="https://keplear.com" target="_blank" rel="noopener noreferrer">
+                            keplear.com
+                        </a>
                     </div>
                 </div>
 
                 {/* Landscape Layout (Desktop/Landscape Devices) */}
                 <div className="projects-page-grid-desktop">
                     <div className="projects-page-item-container">
-                        <Link className="project-button project-button-secondary" to="/">
-                            Coming Soon!
-                        </Link>
+                        <a className="project-button" href="https://keplear.com" target="_blank" rel="noopener noreferrer">
+                            keplear.com
+                        </a>
                     </div>
                 </div>
             </div>

@@ -8,9 +8,7 @@ export function Header() {
                     E4Ellis.net
                 </Link>
                 <nav className="header-nav">
-                    <Link className="nav-link" to="/casino">Casino</Link>
                     <Link className="nav-link" to="/projects">Projects</Link>
-                    <Link className="nav-link" to="/about">About</Link>
                 </nav>
             </div>
         </header>

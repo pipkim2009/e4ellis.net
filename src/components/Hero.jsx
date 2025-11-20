@@ -26,11 +26,7 @@ export function Hero() {
                             Welcome to<br />
                             <span className="hero-title-highlight">E4Ellis.net</span>
                         </h1>
-                        <p className="hero-description">This website contains personal projects made by Ellis Mark Hughes</p>
-                        <div className="hero-fun-fact">
-                            <span className="hero-badge">Fun Fact</span>
-                            <p className="hero-timer" aria-live="polite">You have spent {timer} seconds looking at The Cow MOO!</p>
-                        </div>
+                        <p className="hero-description">This website hosts the public and private work of Ellis Mark Hughes prior to external incorporation.</p>
                     </div>
                     <div className="hero-image-container">
                         <img
@@ -49,11 +45,7 @@ export function Hero() {
                             Welcome to<br />
                             <span className="hero-title-highlight">E4Ellis.net</span>
                         </h1>
-                        <p className="hero-description">This website contains personal projects made by Ellis Mark Hughes</p>
-                        <div className="hero-fun-fact">
-                            <span className="hero-badge">Fun Fact</span>
-                            <p className="hero-timer" aria-live="polite">You have spent {timer} seconds looking at The Cow MOO!</p>
-                        </div>
+                        <p className="hero-description">This website hosts the public and private work of Ellis Mark Hughes prior to external incorporation.</p>
                     </div>
                     <div className="hero-image-desktop">
                         <img
