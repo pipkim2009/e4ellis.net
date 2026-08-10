@@ -148,23 +148,23 @@ header {
     font-size: 1.5rem;
 }
 
-#project-btn-1 {
+#project-btn-1,
+#project-btn-2 {
     border: 1px solid #0d6efd;
     color: #0d6efd;
 }
 
-#project-btn-1:hover {
+#project-btn-1:hover,
+#project-btn-2:hover {
     background-color: #0d6efd;
     color: #e4e4ff;
 }
 
-#project-btn-2,
 #project-btn-3 {
     border: 1px solid #e4e4ff;
     color: #e4e4ff;
 }
 
-#project-btn-2:hover,
 #project-btn-3:hover {
     background-color: #e4e4ff;
     color: #212427;

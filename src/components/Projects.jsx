@@ -9,7 +9,7 @@ export function Projects() {
                     <Link id="project-btn-1" to="/Blackjack">BlackJack!</Link>
                 </div>
                 <div id="projects-col-2">
-                    <Link id="project-btn-2" to="/">Coming Soon!</Link>
+                    <a id="project-btn-2" href="https://keplear.com" target="_blank" rel="noopener noreferrer">keplear.com</a>
                 </div>
                 <div id="projects-col-3">
                     <Link id="project-btn-3" to="/">Coming Soon!</Link>
