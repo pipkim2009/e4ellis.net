@@ -1,7 +1,7 @@
 export function Footer() {
     return (
         <footer>
-            <small>© 2025 Ellis Mark Hughes. All rights reserved.</small>
+            <small>© 2026 Ellis Mark Hughes. All rights reserved.</small>
         </footer>
     )
 }

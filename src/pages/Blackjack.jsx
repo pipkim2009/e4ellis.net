@@ -1,23 +1,19 @@
 import { useState, useEffect } from 'react';
 import { ProjectMenu } from '../components/ProjectMenu.jsx';
-import { calculateScore, endCheck, hit } from '../blackjack.js';
-import { initialHit } from '../blackjack.js';
-import { stand } from '../blackjack.js';
-import { resetGame } from '../blackjack.js';
+import { endCheck, hit, initialHit, resetGame, stand } from '../blackjack.js';
 
 export function Blackjack() {
-
     const [projectState, setProjectState] = useState("menu");
-    const [deck ,setDeck] = useState([]);
+    const [deck, setDeck] = useState([]);
     const [playerHand, setPlayerHand] = useState([]);
     const [dealerHand, setDealerHand] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
     const [dealerScore, setDealerScore] = useState(0);
     const [outcomeMessage, setOutcomeMessage] = useState("");
-    
+
     useEffect(() => {
         if (projectState === "menu") {
-            fetch('assets/json//deck.json')
+            fetch('/assets/json/deck.json')
                 .then(response => response.json())
                 .then(setDeck);
         }
@@ -27,26 +23,26 @@ export function Blackjack() {
         if (projectState === "play" && deck.length === 52 && playerHand.length === 0 && dealerHand.length === 0) {
             initialHit(deck, setDeck, playerHand, setPlayerHand, dealerHand, setDealerHand, setPlayerScore, setDealerScore);
         }
-    }, [deck, projectState]);
+    }, [deck, projectState, playerHand, dealerHand]);
 
     useEffect(() => {
         if (projectState === "play") {
             endCheck("hit", playerScore, dealerScore, setOutcomeMessage, setProjectState, dealerHand, setDealerScore);
         }
-    }, [playerScore, dealerScore])
+    }, [playerScore, dealerScore, projectState, dealerHand])
 
     useEffect(() => {
         if (dealerHand.length > 2) {
             stand(deck, setDeck, dealerHand, setDealerHand, setDealerScore, playerScore, setOutcomeMessage, setProjectState);
         }
-    }, [dealerHand])
+    }, [dealerHand, deck, playerScore])
 
     return (
         <>
-            {projectState != "menu" &&
+            {projectState !== "menu" &&
             <section id="bj-section">
                 <h1 id="project-title">BlackJack</h1>
-                {outcomeMessage != "" &&
+                {outcomeMessage !== "" &&
                     <div id="bj-outcome-display">{outcomeMessage}</div>
                 }
                 <div id="bj-button-row">
@@ -66,7 +62,7 @@ export function Blackjack() {
                         <span id="bj-player-score-elm">Score: {playerScore}</span>
                         <div id="bj-player-hand-container">
                             {playerHand.map((card, i) => (
-                                <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src={card.path}></img>
+                                <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src={card.path} alt="playing card" />
                             ))}
                         </div>
                     </div>
@@ -76,8 +72,8 @@ export function Blackjack() {
                         <div id="bj-dealer-hand-container">
                             {dealerHand.map((card, i) => (
                                 projectState === "play" && i === 0
-                                ? <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src="assets/images/cards/hidden-card.png"/>
-                                : <img key={i} style={{ transform: `rotate(${i * 15 }deg)`, zIndex: i }} src={card.path}/>
+                                ? <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src="/assets/images/cards/hidden-card.png" alt="hidden card" />
+                                : <img key={i} style={{ transform: `rotate(${i * 15}deg)`, zIndex: i }} src={card.path} alt="playing card" />
                             ))}
                         </div>
                     </div>

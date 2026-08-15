@@ -28,7 +28,7 @@ export function Hero() {
                     <span id="fun-fact-text" aria-live="polite">you have spent {timer} seconds looking at The Cow MOO!</span>
                 </div>
                 <div id="hero-col-2">
-                    <img id="dancing-cow" src="assets/gifs/dancing-cow.gif" alt="dancing cow animation" loading="lazy"/>
+                    <img id="dancing-cow" src="/assets/gifs/dancing-cow.gif" alt="dancing cow animation" loading="lazy"/>
                 </div>
             </div>
         </section>

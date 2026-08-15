@@ -1,3 +1,15 @@
+:root {
+    --panel-bg: #e4e4ff;
+    --panel-text: #212427;
+    --tool-item-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --panel-bg: #16181a;
+    --panel-text: #e4e4ff;
+    --tool-item-bg: #212427;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -13,6 +25,7 @@ header {
     background-color: #212427;
     height: 60px;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0px 0px 15px rgba(33,36,39,1); /* #212427 with alpha */
 }
 
@@ -28,8 +41,19 @@ header {
     color: #0d6efd;
 }
 
+#theme-toggle-button {
+    background-color: transparent;
+    border: none;
+    color: #e4e4ff;
+    font-size: 1.3rem;
+    margin-right: 5vw;
+    cursor: pointer;
+    line-height: 1;
+}
+
 #hero-section {
-    background-color: #e4e4ff;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
     height: 40vh;
 }
 
@@ -185,8 +209,8 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #e4e4ff;
-    color: #212427;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
     height: calc(100vh - 60px);
 }
 
@@ -212,8 +236,8 @@ footer {
 }
 
 #bj-section {
-    background-color: #e4e4ff;
-    color: #212427;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
     height: calc(100vh - 60px);
 }
 
@@ -306,4 +330,59 @@ footer {
     #bj-dealer-hand-container > img {
         width: 20vw;
     }
+}
+
+#music-tools-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
+    min-height: calc(100vh - 60px);
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+#music-tools-row {
+    display: flex;
+    gap: 8vw;
+    margin-top: 4vh;
+}
+
+@media (max-width: 600px) {
+    #music-tools-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 5vh;
+    }
+}
+
+.music-tool-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music-tool-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+.music-tool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.music-tool-list-item {
+    background-color: var(--tool-item-bg);
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    width: 14rem;
+    text-align: center;
+    font-weight: 600;
 }
