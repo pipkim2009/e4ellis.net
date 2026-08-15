@@ -10,15 +10,17 @@ const randomOf = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const randomFretboardNote = () => randomOf(NOTES);
 
-const randomChordFrom = (filters) =>
-    `${randomOf(filters.roots)} ${randomOf(filters.qualities)} (${randomOf(filters.forms)} form)`;
+const randomChordFrom = (filters) => {
+    const base = `${randomOf(filters.roots)} ${randomOf(filters.qualities)}`;
+    return filters.forms.length ? `${base} (${randomOf(filters.forms)} form)` : base;
+};
 
 const defaultChordFilters = () => ({ roots: [...NOTES], qualities: [...CHORD_QUALITIES], forms: [...CHORD_FORMS] });
 
 function loadChordFilters() {
     try {
         const parsed = JSON.parse(localStorage.getItem(CHORD_FILTERS_KEY));
-        if (parsed?.roots?.length && parsed?.qualities?.length && parsed?.forms?.length) {
+        if (parsed?.roots?.length && parsed?.qualities?.length && Array.isArray(parsed?.forms)) {
             return parsed;
         }
     } catch {
@@ -132,7 +134,7 @@ function FlashcardDrill({ generateItem, onExit }) {
 }
 
 function ChordSettings({ filters, onChange, onStart, onBack }) {
-    const canStart = filters.roots.length > 0 && filters.qualities.length > 0 && filters.forms.length > 0;
+    const canStart = filters.roots.length > 0 && filters.qualities.length > 0;
 
     const toggle = (key, item) => {
         onChange({
@@ -167,7 +169,7 @@ function ChordSettings({ filters, onChange, onStart, onBack }) {
             <div id="chord-settings-groups">
                 {group('Roots', 'roots', NOTES)}
                 {group('Chord Types', 'qualities', CHORD_QUALITIES)}
-                {group('Forms', 'forms', CHORD_FORMS)}
+                {group('Forms (optional)', 'forms', CHORD_FORMS)}
             </div>
             <div id="chord-settings-button-row">
                 <button id="chord-settings-back-button" onClick={onBack}>Back</button>
