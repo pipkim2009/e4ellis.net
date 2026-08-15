@@ -1,13 +1,11 @@
 :root {
     --panel-bg: #e4e4ff;
     --panel-text: #212427;
-    --tool-item-bg: #ffffff;
 }
 
 [data-theme="dark"] {
     --panel-bg: #16181a;
     --panel-text: #e4e4ff;
-    --tool-item-bg: #212427;
 }
 
 * {
@@ -332,57 +330,183 @@ footer {
     }
 }
 
-#music-tools-section {
+#music-tools-select-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
+    height: calc(100vh - 60px);
+}
+
+#music-tools-select-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    margin-top: 5vh;
+}
+
+.music-tool-select-button {
+    border: 2px solid #0d6efd;
+    background-color: transparent;
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 1.5vh 3vw;
+    width: 60vw;
+    max-width: 320px;
+    font-size: 1.5rem;
+}
+
+.music-tool-select-button:hover {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+}
+
+#flashcard-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--panel-bg);
+    color: var(--panel-text);
+    height: calc(100vh - 60px);
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    padding: 0 5vw;
+}
+
+#flashcard-exit-button {
+    position: absolute;
+    top: 3vh;
+    left: 5vw;
+    border: 2px solid #0d6efd;
+    background-color: transparent;
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+#flashcard-exit-button:hover {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+}
+
+#flashcard-toggle-row {
+    position: absolute;
+    top: 3vh;
+    right: 5vw;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.flashcard-toggle-button {
+    border: 2px solid #0d6efd;
+    background-color: transparent;
+    color: #0d6efd;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.flashcard-toggle-button:hover,
+.flashcard-toggle-button-active {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+}
+
+#flashcard-count {
+    position: absolute;
+    top: 3vh;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 900;
+}
+
+#flashcard-value {
+    font-size: clamp(3rem, 15vw, 8rem);
+    font-weight: 900;
+    color: #0d6efd;
+}
+
+#chord-settings-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--panel-bg);
     color: var(--panel-text);
     min-height: calc(100vh - 60px);
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding: 5vh 5vw;
 }
 
-#music-tools-row {
+#chord-settings-groups {
     display: flex;
-    gap: 8vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6vw;
     margin-top: 4vh;
+    width: 100%;
 }
 
-@media (max-width: 600px) {
-    #music-tools-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 5vh;
-    }
-}
-
-.music-tool-col {
+.chord-settings-group {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.music-tool-title {
-    font-size: 1.3rem;
+.chord-settings-group-title {
+    font-size: 1.2rem;
     font-weight: 900;
-    margin-bottom: 2vh;
-    text-align: center;
+    margin-bottom: 1.5vh;
 }
 
-.music-tool-list {
+.chord-settings-options {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.music-tool-list-item {
-    background-color: var(--tool-item-bg);
+.chord-settings-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.chord-settings-option input[type="checkbox"] {
+    accent-color: #0d6efd;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+#chord-settings-button-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 5vh;
+}
+
+#chord-settings-back-button,
+#chord-settings-start-button {
     border: 2px solid #0d6efd;
+    background-color: transparent;
     color: #0d6efd;
     border-radius: 4px;
-    padding: 0.75rem 1rem;
-    width: 14rem;
-    text-align: center;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+#chord-settings-back-button:hover,
+#chord-settings-start-button:hover:not(:disabled) {
+    background-color: #0d6efd;
+    color: #e4e4ff;
+}
+
+#chord-settings-start-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
